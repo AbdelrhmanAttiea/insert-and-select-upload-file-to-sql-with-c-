@@ -1,0 +1,12 @@
+
+            MySqlConnection con = new MySqlConnection("Server=localhost; database=aya;UID=root ;Pssaword=");
+            string i = "SELECT * FROM student WHERE CONCAT ( `name`,`adress`,`street`)  like '%" + textsearch.Text + "%'";
+           MySqlDataAdapter dapter  = new MySqlDataAdapter(i, con);
+          
+
+            DataTable tbl = new DataTable();
+                dapter.Fill(tbl);
+                dgv.DataSource = tbl;
+
+            
+

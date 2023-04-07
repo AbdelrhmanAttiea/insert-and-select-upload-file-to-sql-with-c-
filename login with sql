@@ -1,0 +1,35 @@
+ try
+            {
+                SqlConnection c = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=Database3.mdf;Integrated Security=True");
+                SqlConnection c2 = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=library;Integrated Security=True");
+                SqlCommand cmmm = new SqlCommand("select count(*) from login where user name ='" + textBox1.Text + "' and email ='" + textBox2.Text + "' and password ='" + textBox3.Text + "'", c2);
+                c2.Open();
+                int result = Convert.ToInt32(cmmm.ExecuteScalar());
+                c2.Close();
+
+                if (result > 0)
+                {
+
+                    this.Hide();
+                    Form1 f1 = new Form1();
+                    f1.Show();
+
+                }
+
+
+
+                else
+                {
+
+                    MessageBox.Show("please check user name and password");
+
+                }
+            }
+            catch(Exception ex)
+            {
+
+
+                MessageBox.Show(ex.Message);
+
+            }
+            

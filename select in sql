@@ -1,0 +1,17 @@
+ MySqlConnection con = new MySqlConnection("Server=localhost; database=STU124;UID=root ;Pssaword=");
+            MySqlCommand cm = new MySqlCommand("select*from student", con);
+            MySqlDataReader read;
+
+            con.Open();
+            read = cm.ExecuteReader();
+           
+
+            while (read.Read())
+            {
+
+                lbl.Text += read[0] + ";" + read[1] + "/n";
+
+            }
+
+            read.Close();
+            con.Close();

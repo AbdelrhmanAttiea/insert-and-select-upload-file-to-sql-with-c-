@@ -1,0 +1,7 @@
+
+            MySqlConnection con = new MySqlConnection("Server=localhost; database=mohamed;UID=root ;Pssaword=");
+
+            MySqlCommand cm = new MySqlCommand("insert into student values('" + textbox.Text + "'  , '" + textadress.Text + "','" + textstreet.Text + "')", con);
+            con.Open();
+            cm.ExecuteNonQuery();
+            con.Close();
